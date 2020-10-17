@@ -4,18 +4,15 @@ int main ()
     Player * user;
     int ch;
     Position * newPosition;
-    char ** level;
+
+    Level * level;
 
     screenSetUp();
 
-    mapSetUp();
-
-    level = saveLevelPositions();
+    level = createLevel();
 
     user = playerSetUp();
 
-    mvprintw(0,0, "The char at 13, 13 is: %c", level[13]);
-    
     /* main game loop stuff */
     while ((ch = getch()) != 'q')
     {

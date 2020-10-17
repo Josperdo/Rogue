@@ -1,7 +1,28 @@
 #include "rogue.h"
 
+// typedef struct Level
+// {
+//     char ** tiles;
+//     int numberOfRooms;
+//     struct Room ** rooms;
+//     struct Monster ** monsters;
+//     int numberOfMonsters;
+// } Level;
 
-Room ** mapSetUp()
+Level * createLevel(int level)
+{
+    Level * newLevel;
+    newLevel = malloc(sizeof(Level));
+
+    newLevel->level = level;
+    newLevel->numberOfRooms = 3;
+    newLevel->rooms = roomsSetUp();
+
+    return newLevel;
+}
+
+
+Room ** roomSetUp()
 {
     Room ** rooms;
     rooms = malloc(sizeof(Room)*6);
