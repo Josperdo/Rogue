@@ -17,7 +17,7 @@ int main ()
     while ((ch = getch()) != 'q')
     {
         newPosition = handleInput(ch, user);
-        checkPosition(newPosition, user, level);
+        checkPosition(newPosition, user, level->tiles);
     }
     endwin();
     

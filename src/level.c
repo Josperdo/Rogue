@@ -17,7 +17,7 @@ Level * createLevel(int level)
     newLevel->level = level;
     newLevel->numberOfRooms = 3;
     newLevel->rooms = roomsSetUp();
-
+    newLevel->tiles = saveLevelPositions();
     return newLevel;
 }
 
