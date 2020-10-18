@@ -55,6 +55,7 @@ typedef struct Monster
 int screenSetUp();
 
 // Level & Map functions
+Level * createLevel();
 Room ** roomSetUp();
 char ** saveLevelPositions();
 
@@ -71,6 +72,10 @@ int connectDoors(Position * doorOne, Position * doorTwo);
 
 // monster functions
 int addMonsters(Level * level);
+Monster * selectMonsters(int level);
+Monster * createMonster(char symbol, int health, int attack, int speed, int defense, int pathfinding);
+int setStartingPosition(Monster * monster, Room * room);
+
 
 
 #endif

@@ -106,4 +106,5 @@ int setStartingPosition(Monster * monster, Room * room)
 
     sprintf(buffer, "%c", monster->symbol);
 
-    mvprintw(monster->position.y, monster->position.x, );
+    mvprintw(monster->position.y, monster->position.x, buffer);
+}

@@ -1,4 +1,5 @@
 #include "rogue.h"
+
 int main ()
 {
     Player * user;
@@ -9,7 +10,7 @@ int main ()
 
     screenSetUp();
 
-    level = createLevel();
+    level = createLevel(1);
 
     user = playerSetUp();
 
