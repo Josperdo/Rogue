@@ -39,6 +39,18 @@ typedef struct Player
     //Room * room;
 } Player;
 
+typedef struct Monster
+{
+    char symbol;
+    int health;
+    int attack;
+    int speed;
+    int defense;
+    int pathfinding;
+    Position position;
+
+} Monster;
+
 // Define....
 int screenSetUp();
 
@@ -52,9 +64,13 @@ Position * handleInput(int input, Player * user);
 int checkPosition(Position * newPosition, Player * user, char ** level);
 int playerMove(Position * newPosition, Player * user, char ** level);
 
-/* room functions */
+// room functions
 Room * createRoom(int x, int y, int height, int width);
 int drawRoom(Room * room);
 int connectDoors(Position * doorOne, Position * doorTwo);
+
+// monster functions
+int addMonsters(Level * level);
+
 
 #endif
