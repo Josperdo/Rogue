@@ -1,3 +1,7 @@
-# XTS (Working Title)
+Here’s the minimum the README should contain:
 
-XTS (Working Title) is a text-based RPG utilizing ncurses.
+What does the project do?
+Who is the project for?
+Why is it different?
+How do I use it? (installation instructions)
+How does it work?
