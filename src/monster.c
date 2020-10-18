@@ -114,42 +114,91 @@ int moveMonsters(Level * level)
     int x;
     for (x = 0; x < level->numberOfMonsters; x++)
     {
+        mvprintw(level->monsters[x]->position->y, level->monsters[x]->position->x, ".");
+
         if (level->monsters[x]->pathfinding == 1)
         {
-            // random
-        }
-        else
+            pathfindinRandom(level->monsters[x]->position);
+        } else
         {
-            mvprintw(level->monsters[x]->position->y, level->monsters[x]->position->x, ".";
             pathfindingSeek(level->monsters[x]->position, level->user->position);
             mvprintw(level->monsters[x]->position->y, level->monsters[x]->position->x, level->monsters[x]->string);
         }
-        
+
+         mvprintw(level->monsters[x]->position->y, level->monsters[x]->position->x, level->monsters[x]->string);
+
     } 
     
 }
+
+int pathfindingRandom(Position * Position)
+{
+    int random;
+    random = rand() % 5;
+
+    switch (random)
+    {
+        // stepping up
+        case 0:
+            if (mvinch(position->y - 1, position->x) == '.')
+            {
+                position->y = position->y - 1;
+            }
+            break;
+        
+        // stepping down
+        case 1: 
+        if (mvinch(position->y + 1, position->x) == '.')
+            {
+                position->y = position->y + 1;
+            }
+            break;
+        
+        // stepping left
+        case 2:
+        if (mvinch(position->y, position0>x - 1) == '.')
+            {
+                position->x = position->x - 1;
+            }
+            break;
+
+        // stepping right
+        case 3: 
+        if (mvinch(position->y, position0>x + 1) == '.')
+            {
+                position->x = position->x + 1;
+            }
+            break;
+
+        // do nothing
+        case 4: 
+            break;
+
+    }
+}
+
 pathfindingSeek(Position * start, Position * destination)
 {
     // Establishing leftward movement
-    if ((abs((start->x - 1) - destination->x) < abs(start->x - destination->x)) && (mvinch(start->y, start->x - 1) == ''))
+    if ((abs((start->x - 1) - destination->x) < abs(start->x - destination->x)) && (mvinch(start->y, start->x - 1) == '.'))
     {
        
-        start->x = temp.x - 1;
+        start->x = start->x - 1;
 
     // Establishing rightward movement
-    } else if ((abs((start->x + 1) - destination->x) < abs(start->x - destination->x)) && (mvinch(start->y, start->x + 1) == ''))
+    } else if ((abs((start->x + 1) - destination->x) < abs(start->x - destination->x)) && (mvinch(start->y, start->x + 1) == '.'))
     {
 
         start->x = start->x + 1;
     
     // Establishing downward movement
-    } else if ((abs((start->y + 1) - destination->y) < abs(start->y - destination->y)) && (mvinch(start->y + 1, start->x == '')))
+    } else if ((abs((start->y + 1) - destination->y) < abs(start->y - destination->y)) && (mvinch(start->y + 1, start->x == '.')))
     {
     
         start->y = start->y + 1;
     
     // Establishing upward movement
-    } else if ((abs((start->y - 1) - destination->y) < abs(start->y - destination->y)) && (mvinch(start->y - 1, start->x == '')))
+    } else if ((abs((start->y - 1) - destination->y) < abs(start->y - destination->y)) && (mvinch(start->y - 1, start->x == '.')))
     {
         start->y = start->y - 1;
     } else 
