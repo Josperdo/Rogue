@@ -13,6 +13,7 @@ typedef struct Level
     struct Room ** rooms;
     struct Monster ** monsters;
     int numberOfMonsters;
+    struct Player * user;
 } Level;
 
 typedef struct Position {
@@ -41,6 +42,7 @@ typedef struct Player
 
 typedef struct Monster
 {
+    char string[2];
     char symbol;
     int health;
     int attack;
@@ -75,7 +77,7 @@ int addMonsters(Level * level);
 Monster * selectMonsters(int level);
 Monster * createMonster(char symbol, int health, int attack, int speed, int defense, int pathfinding);
 int setStartingPosition(Monster * monster, Room * room);
-
-
+int moveMonsters(Level * level);
+int pathfindingSeek(Position * start, Position * destination);
 
 #endif
