@@ -92,11 +92,18 @@ Monster * createMonster(char symbol, int health, int attack, int speed, int defe
     newMonster->speed = speed;
     newMonster->defense = defense;
     newMonster->pathfinding = pathfinding;
+    newMonster->alive = 1;
 
     sprintf(newMonster-string, "%c", monster->symbol);
 
 
     return  newMonster;
+}
+
+killMonster(Monster * monster)
+{
+    mvpw(monster->position->y, monster->position->x, '.');
+    monster->alive = 0;
 }
 
 
@@ -114,6 +121,9 @@ int moveMonsters(Level * level)
     int x;
     for (x = 0; x < level->numberOfMonsters; x++)
     {
+        if (level->monsters[x]->alive = 0)
+            continue;
+            
         mvprintw(level->monsters[x]->position->y, level->monsters[x]->position->x, ".");
 
         if (level->monsters[x]->pathfinding == 1)
@@ -126,7 +136,6 @@ int moveMonsters(Level * level)
         }
 
          mvprintw(level->monsters[x]->position->y, level->monsters[x]->position->x, level->monsters[x]->string);
-
     } 
     
 }
@@ -206,4 +215,17 @@ pathfindingSeek(Position * start, Position * destination)
         // do nothing
     }
     return 1;
+}
+
+
+Monster * getMonsterAt(Position * position, Monster ** monster)
+{
+    int x;
+    for (x = 0; x < 6, x++)
+    {
+        if ((position->y == monsters[x]->position->y) && (position->x == monsters[x]->position->x))
+            return monsters[x];
+    }
+
+    return NULL;
 }

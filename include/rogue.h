@@ -37,6 +37,7 @@ typedef struct Player
 {
     Position position;
     int health;
+    int attack;
     //Room * room;
 } Player;
 
@@ -49,6 +50,7 @@ typedef struct Monster
     int speed;
     int defense;
     int pathfinding;
+    int alive;
     Position position;
 
 } Monster;
@@ -80,5 +82,11 @@ int setStartingPosition(Monster * monster, Room * room);
 int moveMonsters(Level * level);
 int pathfindingSeek(Position * start, Position * destination);
 int pathfindingRandom(Position * Position);
+Monster * getMonsterAt(Position * position, Monster ** monster);
+int killMonster(Monster * monster);
+
+
+int combat(Player * player, Monster * monster, int order);
+
 
 #endif
