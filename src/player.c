@@ -10,7 +10,7 @@ Player * playerSetUp()
     newPlayer->position->x = 14;
     newPlayer->position->y = 14;
     newPlayer->health = 20;
-
+    newPlayer->attack = 1;
     mvprintw(newPlayer->position->y, newPlayer->position->x, "@");
     move(newPlayer->position->y, newPlayer->position->x);
 
@@ -75,7 +75,7 @@ int checkPosition(Position * newPosition, Level * level)
         case 'X':
         case 'G':
         case 'T':
-            combat(user, getMonsterAt(newPosition, level->monsters));
+            combat(user, getMonsterAt(newPosition, level->monsters), 1);
         default:
             move(user->position->y, user->position->x);
             break;

@@ -100,10 +100,12 @@ Monster * createMonster(char symbol, int health, int attack, int speed, int defe
     return  newMonster;
 }
 
-killMonster(Monster * monster)
+int killMonster(Monster * monster)
 {
-    mvpw(monster->position->y, monster->position->x, '.');
+    mvpw(monster->position->y, monster->position->x, ".");
     monster->alive = 0;
+
+    return 1;
 }
 
 
@@ -123,7 +125,7 @@ int moveMonsters(Level * level)
     {
         if (level->monsters[x]->alive = 0)
             continue;
-            
+
         mvprintw(level->monsters[x]->position->y, level->monsters[x]->position->x, ".");
 
         if (level->monsters[x]->pathfinding == 1)

@@ -66,7 +66,7 @@ char ** saveLevelPositions();
 // Player functions
 Player * playerSetUp();
 Position * handleInput(int input, Player * user);
-int checkPosition(Position * newPosition, Player * user, char ** level);
+int checkPosition(Position * newPosition, Level * level);
 int playerMove(Position * newPosition, Player * user, char ** level);
 
 // room functions
